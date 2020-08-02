@@ -145,7 +145,7 @@ void BatchDownloader::nextImages()
 	setCurrentStep(BatchDownloadStep::ImageDownload);
 
 	// Start the simultaneous downloads
-	int count = qMax(1, qMin(m_settings->value("Save/simultaneous").toInt(), 10));
+	int count = qMax(1, m_settings->value("Save/simultaneous").toInt());
 	m_currentlyProcessing.store(count); // TODO: this should be shared amongst instances
 	for (int i = 0; i < count; ++i) {
 		nextImage();
